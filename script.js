@@ -1,3 +1,5 @@
+
+// Constructor of Book
 function Book(title, author, isRead) {
     this.title = title;
     this.author = author;
@@ -10,5 +12,11 @@ Book.prototype.info = function() {
     return `The Book's title is ${this.title}, written by ${this.author}, and I have ${read} it`;
 }
 
-const cujo = new Book('Cujo', 'Stephen King', false);
-console.log(cujo.info())
+//
+
+const booksArr =  [];
+function addBookToLibrary() {
+    //
+}
+
+
