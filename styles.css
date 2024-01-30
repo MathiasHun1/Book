@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,27 +11,34 @@ body {
 }
 
 .container {
+    background-color: rgb(51, 50, 50);
     width: 100%;
     max-width: 1400px;
-    min-height: 100vh;
     height: 100%;
-    background-color: aquamarine;
+    min-height: 100vh;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 4fr 1fr;
-    grid-template-rows: 1fr 4fr;
+    grid-template-rows: 15vh 4fr;
 }
 
 .header {
-    background-color: bisque;
-    grid-row: 1 / 2;
+    background-color: rgb(95, 95, 95);
     grid-column: 1 / 3;
+    padding: 1rem;
+}
+
+.header p {
+    font-size: 80px;
+    font-family: honk;
 }
 
 .sidebar {
-    background-color: blueviolet;
+    background-color: rgb(95, 95, 95);
     grid-row: 2/ 3;
     grid-column: 2 / 3;
+    padding: 1rem;
+    text-align: center;
 }
 
 
@@ -74,22 +83,63 @@ form > button {
 }
 
 .card {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: relative;
     border: 1px solid;
     width: 300px;
-    height: 200px;
+    height: 150px;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: hidden;
+    background-color: darkkhaki;
+    /* background-color: brown; */
+}
+
+.card > div {
+    position: absolute;
+    display: flex;
+    flex-direction: co;
+    bottom: 10px;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    transform: translate(-65%);
 }
 
 .close {
-    width: 30px;
+    position: absolute;
+    width: 20px;
+    border: 1px solid;
+    align-self: flex-end;
 }
+
+.article {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.plus {
+    fill: brown;
+}
+
+.aside h1 *{
+}
+
+
+
 
 /* Toggle switch impl. */
 .switch {
     display: inline-block;
     position: relative;
     width: 46px;
-    height: 26px;
+    height: 22px;
     border: 1px solid;
 }
 
@@ -101,7 +151,7 @@ form > button {
 
 .toggle {
     position: absolute;
-    background-color: aliceblue;
+    background-color: rgb(133, 131, 131);;
     top: 0;
     left: 0;
     right: 0;
@@ -115,8 +165,8 @@ form > button {
   content: "";
   height: 18px;
   width: 18px;
-  left: 3px;
-  bottom: 3px;
+  left: 2px;
+  bottom: 1px;
   background-color: black;
   -webkit-transition: .4s;
   transition: .4s;
@@ -124,12 +174,11 @@ form > button {
 }
 
 input:checked + .toggle:before {
-    -webkit-transform: translateX(20px);
-    -ms-transform: translateX(20px);
-    transform: translateX(20px);
-  }
+    -webkit-transform: translateX(22px);
+    -ms-transform: translateX(22px);
+    transform: translateX(22px);
+}
 
   .switch, .toggle {
     border-radius: 20px;
-  }
-  /*  */
+}
