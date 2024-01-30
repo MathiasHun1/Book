@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    min-height: 100vh;
+    height: 100%;
+    background-color: aquamarine;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr 4fr;
+}
+
+.header {
+    background-color: bisque;
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;
+}
+
+.sidebar {
+    background-color: blueviolet;
+    grid-row: 2/ 3;
+    grid-column: 2 / 3;
+}
+
+
+form {
+    border: 1px solid;
+    width: 350px;
+    height: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    border-radius: 15px;
+    display: none;
+}
+
+fieldset {
+    width: 80%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    border: none;
+}
+
+input {
+    width: 85%;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    padding: 5px;
+}
+
+form > button {
+    padding: 8px;
+    width: 140px;
+    border-radius: 20px;
+}
+
+.card {
+    border: 1px solid;
+    width: 300px;
+    height: 200px;
+    padding: 1rem;
+}
+
+.close {
+    width: 30px;
+}
+
+/* Toggle switch impl. */
+.switch {
+    display: inline-block;
+    position: relative;
+    width: 46px;
+    height: 26px;
+    border: 1px solid;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle {
+    position: absolute;
+    background-color: aliceblue;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.toggle::before {
+    position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: black;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+
+  .switch, .toggle {
+    border-radius: 20px;
+  }
+  /*  */
