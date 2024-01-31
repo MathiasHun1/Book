@@ -69,17 +69,7 @@ function addBookToLibrary() {
     newPages.textContent = bookPages.value + ' pages';
     cardElement.appendChild(newPages);
 
-    const toggleCont = createToggle();
-    cardElement.appendChild(toggleCont);
-
-    closeCard.addEventListener('click', () => {
-        article.removeChild(cardElement);
-    });
-
-}
-
-
-function createToggle() {
+    //Create and append a toggle
     const toggleCont = document.createElement('div');
 
     const para1 = document.createElement('p');
@@ -90,6 +80,7 @@ function createToggle() {
     label1.classList.add('switch')
     
     const checkBox = document.createElement('input');
+    checkBox.checked = isRead.checked;
     checkBox.classList.add('checkbox');
     checkBox.setAttribute('type', 'checkbox');
 
@@ -101,11 +92,26 @@ function createToggle() {
 
     toggleCont.appendChild(para1);
     toggleCont.appendChild(label1);
+    cardElement.appendChild(toggleCont);
+    //toggle end
+    
+    if (checkBox.checked === true) {
+        cardElement.style.backgroundColor = 'darkkhaki';
+    } else cardElement.style.backgroundColor = 'brown';
 
-    return toggleCont
+    checkBox.addEventListener('click', () => {
+        if (checkBox.checked === true) {
+            checkBox.click()
+            cardElement.style.backgroundColor = 'darkkhaki';
+        } else {
+            checkBox.click()
+            cardElement.style.backgroundColor = 'brown';
+        }
+    
+    })
+    
+    closeCard.addEventListener('click', () => {
+        article.removeChild(cardElement);
+    });   
 }
-
-
-
-
 

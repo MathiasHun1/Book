@@ -94,8 +94,6 @@ input {
     flex-direction: column;
     gap: 10px;
     overflow-y: hidden;
-    /* background-color: darkkhaki; */
-    background-color: brown;
 }
 
 .card > div {
