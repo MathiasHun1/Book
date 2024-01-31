@@ -42,7 +42,8 @@ body {
 }
 
 
-form {
+dialog {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border: 1px solid;
     width: 350px;
     height: 400px;
@@ -56,10 +57,11 @@ form {
     align-items: center;
     background-color: antiquewhite;
     border-radius: 15px;
-    display: none;
+    /* display: none; */
+    z-index: 1;
 }
 
-fieldset {
+.form-main {
     width: 80%;
     height: 75%;
     display: flex;
@@ -76,7 +78,7 @@ input {
     padding: 5px;
 }
 
-form > button {
+dialog > button {
     padding: 8px;
     width: 140px;
     border-radius: 20px;
@@ -93,8 +95,8 @@ form > button {
     flex-direction: column;
     gap: 10px;
     overflow-y: hidden;
-    background-color: darkkhaki;
-    /* background-color: brown; */
+    /* background-color: darkkhaki; */
+    background-color: brown;
 }
 
 .card > div {
@@ -128,9 +130,9 @@ form > button {
     fill: brown;
 }
 
-.aside h1 *{
+.checkbox:checked + .card {
+    background-color: darkkhaki;
 }
-
 
 
 
