@@ -17,6 +17,7 @@ function Book(title, author, pages, isRead) {
     this.isRead = isRead;
 }
 
+//Event listeners
 showButton.addEventListener('click', () => {
     dialog.showModal();
 });
@@ -28,8 +29,10 @@ closeButton.addEventListener('click', () => {
 
 
 
+//Functions
 function addBookToArr() {
-    booksArr.push(new Book(bookTitle.value, bookAuthor.value, bookPages.value, isRead.checked));
+    const cardElement = (new Book(bookTitle.value, bookAuthor.value, bookPages.value, isRead.checked));
+    booksArr.push(cardElement);
     addBookToLibrary();
     bookTitle.value = '';
     bookAuthor.value = '';
@@ -39,14 +42,20 @@ function addBookToArr() {
     console.log(booksArr)
 }
 
+
 function addBookToLibrary() {
-    const newCard = document.createElement('div');
-    newCard.classList.add('card');
-    article.appendChild(newCard);
+    const cardElement = document.createElement('div');
+    cardElement.classList.add('card');
+    article.appendChild(cardElement);
+    
+    const closeCard = document.createElement('img');
+    closeCard.classList.add('close');
+    closeCard.setAttribute('src', 'images/close.svg');
+    cardElement.appendChild(closeCard);
 
     const newTitle = document.createElement('h3');
     newTitle.textContent = bookTitle.value;
-    newCard.appendChild(newTitle);
+    cardElement.appendChild(newTitle);
 
     const newAuthor = document.createElement('p');
     const italicText = document.createElement('i')
@@ -54,15 +63,21 @@ function addBookToLibrary() {
 
     newAuthor.appendChild(italicText);
     newAuthor.appendChild(document.createTextNode(bookAuthor.value));
-    newCard.appendChild(newAuthor);
+    cardElement.appendChild(newAuthor);
 
     const newPages = document.createElement('p');
     newPages.textContent = bookPages.value + ' pages';
-    newCard.appendChild(newPages);
+    cardElement.appendChild(newPages);
 
-    const toggleCont = createToggle()
-    newCard.appendChild(toggleCont);
+    const toggleCont = createToggle();
+    cardElement.appendChild(toggleCont);
+
+    closeCard.addEventListener('click', () => {
+        article.removeChild(cardElement);
+    });
+
 }
+
 
 function createToggle() {
     const toggleCont = document.createElement('div');
