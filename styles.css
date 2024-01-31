@@ -101,7 +101,6 @@ input {
 .card > div {
     position: absolute;
     display: flex;
-    flex-direction: co;
     bottom: 10px;
     gap: 1rem;
     justify-content: center;
