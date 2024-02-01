@@ -67,10 +67,10 @@ function addCardToScreen(book) {
     const newAuthor = document.createElement('p');
     const italicText = document.createElement('i')
     italicText.textContent = 'Written by: ';
-    const titleText = document.createTextNode(book.title);
+    const authorText = document.createTextNode(book.author);
 
     newAuthor.appendChild(italicText);
-    newAuthor.appendChild(titleText);
+    newAuthor.appendChild(authorText);
     cardElement.appendChild(newAuthor);
 
     const newPages = document.createElement('p');

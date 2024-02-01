@@ -26,11 +26,13 @@ body {
     background-color: rgb(95, 95, 95);
     grid-column: 1 / 3;
     padding: 1rem;
+    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);;
 }
 
 .header p {
     font-size: 80px;
     font-family: honk;
+    margin-left: 2rem;
 }
 
 .sidebar {
@@ -39,6 +41,8 @@ body {
     grid-column: 2 / 3;
     padding: 1rem;
     text-align: center;
+    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
+
 }
 
 
@@ -55,7 +59,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: antiquewhite;
+    background-color: rgb(189, 141, 80);
     border-radius: 15px;
     z-index: 1;
 }
@@ -81,6 +85,10 @@ input {
     padding: 8px;
     width: 140px;
     border-radius: 20px;
+}
+
+#read:checked {
+    color: darkolivegreen;
 }
 
 .card {
@@ -124,6 +132,11 @@ input {
 
 .plus {
     fill: brown;
+    max-width: 130px;
+}
+
+.plus:hover {
+    fill: red;
 }
 
 .checkbox:checked + .card {
@@ -184,3 +197,25 @@ input:checked + .toggle:before {
   .switch, .toggle {
     border-radius: 20px;
 }
+
+@media screen and (max-width: 740px) {
+    .header p {
+        font-size: 65px;
+    }
+
+    .container {
+        grid-template-rows: 15vh 4fr;
+    }
+  }
+
+  @media screen and (max-width: 610px) {
+    .header p {
+        font-size: 65px;
+    }
+
+    .container {
+        grid-template-rows: 23vh 4fr;
+    }
+  }
+
+
