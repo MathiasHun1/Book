@@ -17,33 +17,40 @@ function Book(title, author, pages, isRead) {
     this.isRead = isRead;
 }
 
+Book.prototype.removeFromArr = function (array) {
+    array.splice(array.indexOf(this), 1);
+}
+
 //Event listeners
 showButton.addEventListener('click', () => {
     dialog.showModal();
 });
 closeButton.addEventListener('click', () => {
     if (bookTitle.value !== '' && bookAuthor.value !== '' && bookPages.value !== '') {
-        addBookToArr()
+        addBookToArr();
+        render();
     }  else alert('You have to fill all fields')
 });
 
-
-
 //Functions
 function addBookToArr() {
-    const cardElement = (new Book(bookTitle.value, bookAuthor.value, bookPages.value, isRead.checked));
-    booksArr.push(cardElement);
-    addBookToLibrary();
+    const book = new Book(bookTitle.value, bookAuthor.value, bookPages.value, isRead.checked);
+    booksArr.push(book);
     bookTitle.value = '';
     bookAuthor.value = '';
     bookPages.value = '';
     isRead.checked = false;
     dialog.close();
-    console.log(booksArr)
 }
 
+function render() {
+    article.innerHTML = '';
+    for (let i = 0; i < booksArr.length; i++) {
+        addCardToScreen(booksArr[i]);
+    }
+}
 
-function addBookToLibrary() {
+function addCardToScreen(book) {
     const cardElement = document.createElement('div');
     cardElement.classList.add('card');
     article.appendChild(cardElement);
@@ -54,19 +61,20 @@ function addBookToLibrary() {
     cardElement.appendChild(closeCard);
 
     const newTitle = document.createElement('h3');
-    newTitle.textContent = bookTitle.value;
+    newTitle.textContent = book.title;
     cardElement.appendChild(newTitle);
 
     const newAuthor = document.createElement('p');
     const italicText = document.createElement('i')
     italicText.textContent = 'Written by: ';
+    const titleText = document.createTextNode(book.title);
 
     newAuthor.appendChild(italicText);
-    newAuthor.appendChild(document.createTextNode(bookAuthor.value));
+    newAuthor.appendChild(titleText);
     cardElement.appendChild(newAuthor);
 
     const newPages = document.createElement('p');
-    newPages.textContent = bookPages.value + ' pages';
+    newPages.textContent = book.pages + ' pages';
     cardElement.appendChild(newPages);
 
     //Create and append a toggle
@@ -80,7 +88,7 @@ function addBookToLibrary() {
     label1.classList.add('switch')
     
     const checkBox = document.createElement('input');
-    checkBox.checked = isRead.checked;
+    checkBox.checked = book.isRead;
     checkBox.classList.add('checkbox');
     checkBox.setAttribute('type', 'checkbox');
 
@@ -106,12 +114,13 @@ function addBookToLibrary() {
         } else {
             checkBox.click()
             cardElement.style.backgroundColor = 'brown';
-        }
-    
+        }     
     })
     
     closeCard.addEventListener('click', () => {
-        article.removeChild(cardElement);
-    });   
+        book.removeFromArr(booksArr);
+        render();
+    }
+    );   
 }
 
